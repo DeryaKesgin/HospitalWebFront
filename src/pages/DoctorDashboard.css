@@ -1,0 +1,158 @@
+.dashboard-container {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+    .dashboard-container h1 {
+        color: #007bff;
+        font-size: 2rem;
+        margin-bottom: 1rem;
+    }
+
+    .dashboard-container p {
+        font-size: 1.2rem;
+        color: #333;
+        margin-bottom: 2rem;
+    }
+
+.search-section {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+}
+
+.search-by-name,
+.search-by-diagnosis {
+    flex: 1;
+    margin-right: 1rem;
+}
+
+    .search-by-name input,
+    .search-by-diagnosis input {
+        width: calc(100% - 100px);
+        padding: 0.75rem;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        margin-right: 0.5rem;
+    }
+
+    .search-by-name button,
+    .search-by-diagnosis button {
+        padding: 0.75rem 1.5rem;
+        border: none;
+        border-radius: 5px;
+        background: #007bff;
+        color: #fff;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: background 0.3s ease-in-out;
+    }
+
+        .search-by-name button:hover,
+        .search-by-diagnosis button:hover {
+            background: #ff4d4d;
+        }
+
+    .search-by-name ul,
+    .search-by-diagnosis table {
+        margin-top: 1rem;
+    }
+
+    .search-by-name ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .search-by-name li {
+        background: #ffcccc;
+        padding: 1rem;
+        border: 1px solid #ddd;
+        margin-bottom: 0.5rem;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background 0.3s ease-in-out;
+    }
+
+        .search-by-name li:hover {
+            background: #ff9999;
+        }
+
+    .search-by-diagnosis table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    .search-by-diagnosis th,
+    .search-by-diagnosis td {
+        border: 1px solid #ddd;
+        padding: 0.75rem;
+        text-align: left;
+    }
+
+    .search-by-diagnosis th {
+        background: #007bff;
+        color: #fff;
+    }
+
+    .search-by-diagnosis tr:nth-child(even) {
+        background: #f9f9f9;
+    }
+
+    .search-by-diagnosis tr:hover {
+        background: #ffcccc;
+    }
+
+.examination-history {
+    margin-top: 2rem;
+}
+
+    .examination-history h2 {
+        font-size: 1.5rem;
+        color: #007bff;
+        margin-bottom: 1rem;
+    }
+
+    .examination-history table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    .examination-history th,
+    .examination-history td {
+        border: 1px solid #ddd;
+        padding: 0.75rem;
+        text-align: left;
+    }
+
+    .examination-history th {
+        background: #007bff;
+        color: #fff;
+    }
+
+    .examination-history tr:nth-child(even) {
+        background: #f9f9f9;
+    }
+
+    .examination-history tr:hover {
+        background: #ffcccc;
+    }
+
+    .examination-history button {
+        padding: 0.75rem 1.5rem;
+        border: none;
+        border-radius: 5px;
+        background: #007bff;
+        color: #fff;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: background 0.3s ease-in-out;
+    }
+
+        .examination-history button:hover {
+            background: #ff4d4d;
+        }
