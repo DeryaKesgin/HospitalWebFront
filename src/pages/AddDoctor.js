@@ -2,8 +2,7 @@
 import axios from 'axios';
 import { useNavigate, useLocation } from 'react-router-dom';
 
-
-//test commit
+//ıweuhfıweuhfeuıfheıhufeıw
 function AddDoctor() {
     const location = useLocation();
 
