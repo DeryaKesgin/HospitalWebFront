@@ -55,7 +55,7 @@ function DoctorDashboard() {
     const handleSearch = async () => {
         setNoDataMessage('');
         try {
-            const response = await axios.get(`https://localhost:44345/api/Hasta/WithFilter?firstname=${searchTerm}&lastname=${searchTerm}`);
+            const response = await axios.get(`https://localhost:44345/api/Hasta/WithFilterForDoctor?firstname=${searchTerm}&lastname=${searchTerm}`);
 
             if (response.data.length === 0) {
                 setNoDataMessage('Veri bulunamadı.');

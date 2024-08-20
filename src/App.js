@@ -12,6 +12,8 @@ import ViewDoctors from './pages/ViewDoctors';
 import AddPatient from './pages/AddPatient';
 import AddDoctor from './pages/AddDoctor';
 import NewExaminationForm from './pages/NewExaminationForm';
+import EditForm from './pages/EditForm';
+
 
 
 
@@ -31,7 +33,9 @@ function App() {
                 <Route path="/view-doctors" element={<ViewDoctors />} />
                 <Route path="/add-patient" element={<AddPatient />} />
                 <Route path="/add-doctor" element={<AddDoctor />} />
-                <Route path="/add-examination" element={<NewExaminationForm/>} />
+                <Route path="/add-examination" element={<NewExaminationForm />} />
+                <Route path="/edit-form" element={<EditForm />} />
+
             </Routes>
         </Router>
     );
