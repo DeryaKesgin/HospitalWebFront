@@ -1,132 +1,164 @@
-/* Genel Sayfa Stili */
-.main-content {
+.admin-dashboard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     padding: 20px;
-    max-width: 900px;
-    margin: 0 auto;
-    font-family: 'Arial', sans-serif;
-    background-color: #f7f9fc;
-    border-radius: 10px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Baþlýklar */
-h1, h2 {
-    color: #1a73e8;
-    text-align: center;
+.welcome-message {
+    font-size: 1.5rem;
     margin-bottom: 20px;
 }
 
-h1 {
-    font-size: 2em;
-    margin-bottom: 30px;
-}
-
-h2 {
-    font-size: 1.5em;
-    margin-bottom: 15px;
-}
-
-/* Butonlar */
-button {
-    padding: 10px 20px;
-    font-size: 1em;
-    border: none;
-    border-radius: 5px;
-    margin: 10px 5px;
-    cursor: pointer;
-    color: #fff;
-    background-color: #1a73e8;
-    transition: background-color 0.3s;
-}
-
-    button:hover {
-        background-color: #1558b3;
-    }
-
-    button:active {
-        background-color: #0c3a7d;
-    }
-
-/* Operation Selector */
 .operation-selector {
-    text-align: center;
-    margin-bottom: 30px;
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
 }
 
     .operation-selector button {
-        margin: 0 10px;
+        padding: 10px 20px;
+        font-size: 1rem;
+        border: none;
+        background-color: #007bff;
+        color: white;
+        cursor: pointer;
+        border-radius: 5px;
+        transition: background-color 0.3s;
     }
 
-/* Form Alanlarý */
-label {
-    display: block;
-    font-weight: bold;
-    margin-bottom: 5px;
-    color: #333;
-}
+        .operation-selector button.active-operation {
+            background-color: #0056b3;
+        }
 
-input[type="text"] {
-    width: 100%;
-    padding: 10px;
+.search-section {
+    display: flex;
+    gap: 10px;
     margin-bottom: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-sizing: border-box;
-    font-size: 1em;
 }
 
-    input[type="text"]:focus {
-        border-color: #1a73e8;
-        outline: none;
+    .search-section input {
+        padding: 10px;
+        font-size: 1rem;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        width: 200px;
     }
 
-/* Arama Sonuçlarý */
+    .search-section button {
+        padding: 10px 20px;
+        font-size: 1rem;
+        border: none;
+        background-color: #28a745;
+        color: white;
+        cursor: pointer;
+        border-radius: 5px;
+        transition: background-color 0.3s;
+    }
+
+        .search-section button:hover {
+            background-color: #218838;
+        }
+
+.no-data-message,
+.error-message {
+    color: #dc3545;
+    font-size: 1rem;
+    margin-bottom: 20px;
+}
+
 .search-results {
-    margin-top: 30px;
-    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+    width: 100%;
+    max-width: 600px;
+}
+
+.search-result-item {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    cursor: pointer;
+    color: white;
+    transition: background-color 0.3s;
+}
+
+    .search-result-item.active {
+        background-color: #007bff; /* Aktif kiþiler için arka plan rengi */
+    }
+
+    .search-result-item.inactive {
+        background-color: #54575a44; /* Pasif kiþiler için daha silik bir mavi arka plan rengi */
+    }
+
+    .search-result-item.selected {
+        background-color: #0056b3; /* Seçilen aktif kiþi için arka plan rengi */
+        color: white;
+    }
+
+    .search-result-item.inactive.selected {
+        background-color: #7c7b7b; /* Seçilen pasif kiþi için arka plan rengi */
+        color: white;
+    }
+
+.selected-item-details {
     padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f8f9fa;
+    margin-bottom: 20px;
+    width: 100%;
+    max-width: 600px;
 }
 
-    .search-results h3 {
-        color: #1a73e8;
+    .selected-item-details h3 {
         margin-bottom: 15px;
-        font-size: 1.3em;
-        text-align: center;
+        font-size: 1.25rem;
+        color: #007bff;
     }
 
-    .search-results ul {
-        list-style-type: none;
-        padding: 0;
-        margin: 0;
+    .selected-item-details p {
+        margin: 5px 0;
+        display: flex;
+        justify-content: space-between;
+        font-size: 1rem;
+        color: #333;
     }
 
-    .search-results li {
-        padding: 15px;
-        margin-bottom: 10px;
-        border-bottom: 1px solid #eee;
-    }
-
-        .search-results li:last-child {
-            border-bottom: none;
+        .selected-item-details p span {
+            font-weight: bold;
+            color: #555;
         }
 
-        .search-results li p {
-            margin: 5px 0;
-        }
-
-        .search-results li strong {
-            color: #333;
-        }
-
-/* Hata ve Veri Bulunamadý Mesajlarý */
-p {
-    margin-top: 20px;
-    text-align: center;
-    font-weight: bold;
+.action-buttons {
+    display: flex;
+    gap: 10px;
 }
 
-    p[style*="color: red"] {
-        color: #e74c3c;
+    .action-buttons button {
+        padding: 10px 20px;
+        font-size: 1rem;
+        border: none;
+        color: white;
+        cursor: pointer;
+        border-radius: 5px;
+        transition: background-color 0.3s;
     }
+
+        .action-buttons button:first-child {
+            background-color: #007bff;
+        }
+
+        .action-buttons button:nth-child(2) {
+            background-color: #ffc107;
+        }
+
+        .action-buttons button:last-child {
+            background-color: #dc3545;
+        }
+
+        .action-buttons button:hover {
+            opacity: 0.9;
+        }

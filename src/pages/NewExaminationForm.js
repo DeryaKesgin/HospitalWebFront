@@ -1,7 +1,8 @@
 ﻿import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useLocation, useNavigate } from 'react-router-dom';
-
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function NewExaminationForm() {
     const location = useLocation();
@@ -11,8 +12,6 @@ function NewExaminationForm() {
     const [complaint, setComplaint] = useState('');
     const [diagnosis, setDiagnosis] = useState('');
     const [prescription, setPrescription] = useState('');
-    const [message, setMessage] = useState(''); // Mesaj durumu
-    const [error, setError] = useState(''); // Hata durumu
 
     const handleBackToDashboard = () => {
         navigate('/appointments');
@@ -24,15 +23,12 @@ function NewExaminationForm() {
         }
     }, [doctorId, navigate]);
 
-
     const handleSubmit = async (e) => {
         e.preventDefault();
-        setMessage('');
-        setError('');
 
         const data = {
             hastaId: patientId,
-            doktorId: doctorId,  // Doktor ID'si buraya dahil ediliyor
+            doktorId: doctorId,
             complaint: complaint,
             diagnosis: diagnosis,
             prescription: prescription
@@ -43,14 +39,14 @@ function NewExaminationForm() {
         try {
             const response = await axios.post('https://localhost:44345/api/Examination/addExamination', data);
             if (response.status === 200 || response.status === 201) {
-                setMessage('Muayene kaydı başarıyla eklendi!');
+                toast.success('Muayene kaydı başarıyla eklendi!');
                 setComplaint('');
                 setDiagnosis('');
                 setPrescription('');
             }
         } catch (error) {
             console.error('Muayene kaydı ekleme hatası:', error);
-            setError('Muayene kaydı eklenirken bir hata oluştu.');
+            toast.error('Muayene kaydı eklenirken bir hata oluştu.');
         }
     };
 
@@ -81,11 +77,10 @@ function NewExaminationForm() {
                 <button type="submit">Kaydet</button> <br />
                 <div>
                     <br />
-                    <button onClick={handleBackToDashboard}>Doktor Dashboard'a Geri Dön</button>
+                    <button type="button" onClick={handleBackToDashboard}>Doktor Dashboard'a Geri Dön</button>
                 </div>
             </form>
-            {message && <p>{message}</p>}
-            {error && <p>{error}</p>}
+            <ToastContainer position="top-right" autoClose={5000} hideProgressBar={false} newestOnTop closeOnClick pauseOnFocusLoss draggable pauseOnHover />
         </div>
     );
 }

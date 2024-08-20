@@ -7,7 +7,6 @@ function AdminDashboard() {
     const location = useLocation();
     const navigate = useNavigate();
 
-    // Yerel depolama'dan veri almak için yardımcı fonksiyon
     const getStoredData = (key, defaultValue) => {
         const item = localStorage.getItem(key);
         if (item) {
@@ -22,7 +21,7 @@ function AdminDashboard() {
     };
 
     const [adminInfo, setAdminInfo] = useState(location.state?.adminInfo || getStoredData('adminInfo', null));
-    const [selectedOperation, setSelectedOperation] = useState('patient'); // Varsayılan olarak hasta işlemi seçili
+    const [selectedOperation, setSelectedOperation] = useState('patient');
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
     const [searchResults, setSearchResults] = useState([]);
@@ -30,16 +29,14 @@ function AdminDashboard() {
     const [errorMessage, setErrorMessage] = useState('');
     const [noDataMessage, setNoDataMessage] = useState('');
 
-    // Admin giriş kontrolü
     useEffect(() => {
         if (!adminInfo) {
-            navigate('/login/admin'); // Admin bilgisi yoksa giriş sayfasına yönlendir
+            navigate('/login/admin');
         } else {
             localStorage.setItem('adminInfo', JSON.stringify(adminInfo));
         }
     }, [adminInfo, navigate]);
 
-    // İşlem seçimi değiştirildiğinde tetiklenen fonksiyon
     const handleOperationChange = (operation) => {
         setSelectedOperation(operation);
         setFirstName('');
@@ -50,7 +47,6 @@ function AdminDashboard() {
         setNoDataMessage('');
     };
 
-    // Arama işlemini gerçekleştiren fonksiyon
     const handleSearch = async () => {
         setErrorMessage('');
         setNoDataMessage('');
@@ -69,7 +65,10 @@ function AdminDashboard() {
             if (response.data.length === 0) {
                 setNoDataMessage('Veri bulunamadı.');
             } else {
-                setSearchResults(response.data);
+                const activeItems = response.data.filter(item => item.activity === true).sort((a, b) => a.id - b.id);
+                const inactiveItems = response.data.filter(item => item.activity === false).sort((a, b) => a.id - b.id);
+                const sortedResults = [...activeItems, ...inactiveItems];
+                setSearchResults(sortedResults);
             }
         } catch (error) {
             console.error('Veri çekme hatası:', error);
@@ -77,33 +76,27 @@ function AdminDashboard() {
         }
     };
 
-    // Yeni kayıt ekleme işlemi
     const handleAddNew = () => {
         const addNewPath = selectedOperation === 'patient' ? '/add-patient' : '/add-doctor';
         navigate(addNewPath);
     };
 
-    // Seçilen kaydı güncelleme işlemi
     const handleUpdate = () => {
         if (selectedItem) {
-            console.log("Güncellenen item:", selectedItem); // selectedItem bilgilerini konsola yazdır
-
             navigate('/edit-form', {
                 state: {
                     item: selectedItem,
                     isPatient: selectedOperation === 'patient'
                 }
-
             });
         }
     };
 
-    // Seçilen kaydı silme işlemi
     const handleDelete = async () => {
         if (selectedItem) {
             const apiEndpoint = selectedOperation === 'patient'
                 ? `https://localhost:44345/api/Hasta/${selectedItem.hastaId}`
-                : `https://localhost:44345/api/Doctor/${selectedItem.doctorId}`;
+                : `https://localhost:44345/api/Doctor/${selectedItem.doktorId}`;
 
             try {
                 await axios.delete(apiEndpoint);
@@ -117,17 +110,26 @@ function AdminDashboard() {
         }
     };
 
-    // Seçilen kaydı görüntüleme işlemi
     const handleSelectItem = (item) => {
         setSelectedItem(item);
     };
 
     return (
         <div className="admin-dashboard">
-            <h1>Admin Paneli</h1>
+            <h1 className="welcome-message">Hoşgeldiniz, {adminInfo?.firstName} {adminInfo?.lastName}!</h1>
             <div className="operation-selector">
-                <button onClick={() => handleOperationChange('patient')}>Hasta İşlemleri</button>
-                <button onClick={() => handleOperationChange('doctor')}>Doktor İşlemleri</button>
+                <button
+                    className={selectedOperation === 'patient' ? 'active-operation' : ''}
+                    onClick={() => handleOperationChange('patient')}
+                >
+                    Hasta İşlemleri
+                </button>
+                <button
+                    className={selectedOperation === 'doctor' ? 'active-operation' : ''}
+                    onClick={() => handleOperationChange('doctor')}
+                >
+                    Doktor İşlemleri
+                </button>
             </div>
             <div className="search-section">
                 <input
@@ -150,37 +152,36 @@ function AdminDashboard() {
                 {searchResults.map((item, index) => (
                     <div
                         key={index}
-                        className={`search-result-item ${selectedItem === item ? 'selected' : ''}`}
+                        className={`search-result-item ${item.activity ? 'active' : 'inactive'} ${selectedItem === item ? 'selected' : ''}`}
                         onClick={() => handleSelectItem(item)}
                     >
-                        {item.firstName} {item.lastName}
+                        {selectedOperation === 'patient' ? `${item.firstName} ${item.lastName}` : `${item.firstName} ${item.lastName}`}
                     </div>
                 ))}
             </div>
             {selectedItem && (
                 <div className="selected-item-details">
-                    <h3>Seçilen Kaydın Detayları</h3>
-                    {selectedOperation === 'patient' ? (
-                        <div>
-                            <p><strong>Hasta ID:</strong> {selectedItem.hastaId}</p>
-                            <p><strong>İsim:</strong> {selectedItem.firstName}</p>
-                            <p><strong>Soyisim:</strong> {selectedItem.lastName}</p>
+                    <h2>Seçilen {selectedOperation === 'patient' ? 'Hasta' : 'Doktor'} Bilgileri</h2>
+                    <p><strong>İsim:</strong> {selectedItem.firstName}</p>
+                    <p><strong>Soyisim:</strong> {selectedItem.lastName}</p>
+                    {selectedOperation === 'patient' && (
+                        <>
                             <p><strong>Email:</strong> {selectedItem.email}</p>
-                        </div>
-                    ) : (
-                        <div>
-                            <p><strong>Doktor ID:</strong> {selectedItem.doctorId}</p>
-                            <p><strong>İsim:</strong> {selectedItem.firstName}</p>
-                            <p><strong>Soyisim:</strong> {selectedItem.lastName}</p>
-                            <p><strong>Uzmanlık:</strong> {selectedItem.specialty}</p>
-                        </div>
+                            <p><strong>Aktiflik Durumu:</strong> {selectedItem.activity ? 'Aktif' : 'Pasif'}</p>
+                        </>
                     )}
-                    <button onClick={handleUpdate}>Bilgileri Düzenle</button>
-                    <button onClick={handleDelete}>Kaydı Sil</button>
+                    {selectedOperation === 'doctor' && (
+                        <>
+                            <p><strong>Email:</strong> {selectedItem.email}</p>
+                            <p><strong>Aktiflik Durumu:</strong> {selectedItem.activity ? 'Aktif' : 'Pasif'}</p>
+                        </>
+                    )}
                 </div>
             )}
             <div className="action-buttons">
-                <button onClick={handleAddNew}>Yeni Kayıt Ekle</button>
+                <button onClick={handleAddNew}>Yeni Ekle</button>
+                <button onClick={handleUpdate}>Bilgileri Güncelle</button>
+                <button onClick={handleDelete}>Kayıt Sil</button>
             </div>
         </div>
     );

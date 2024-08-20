@@ -1,20 +1,20 @@
 ﻿import React, { useState, useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function EditForm() {
     const location = useLocation();
     const navigate = useNavigate();
     const { item, isPatient } = location.state || {};
-
-    const [id, setId] = useState(isPatient ? item.hastaId : item.doctorId);
+    const [id, setId] = useState(isPatient ? item.hastaId : item.doktorId);
     const [firstName, setFirstName] = useState(item?.firstName || '');
     const [lastName, setLastName] = useState(item?.lastName || '');
     const [email, setEmail] = useState(item?.email || '');
     const [password, setPassword] = useState('');
     const [existingPassword, setExistingPassword] = useState(item?.password || '');
     const [isActive, setIsActive] = useState(item?.activity !== false);
-    const [message, setMessage] = useState('');
     const [error, setError] = useState('');
 
     useEffect(() => {
@@ -33,11 +33,9 @@ function EditForm() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        setMessage('');
         setError('');
 
         const data = {
-            
             firstName,
             lastName,
             email,
@@ -55,12 +53,14 @@ function EditForm() {
             const response = await axios.put(apiEndpoint, data);
             console.log(response);
             if (response.status === 200 || response.status === 204) {
-                setMessage('Bilgiler başarıyla güncellendi!');
-                navigate('/admin-dashboard');
+                toast.success('Bilgiler başarıyla güncellendi!');
+                setTimeout(() => {
+                    navigate('/dashboard');
+                }, 3000); // 3 saniye sonra AdminDashboard sayfasına yönlendir
             }
         } catch (error) {
             console.error('Bilgi güncelleme hatası:', error);
-            setError('Bilgi güncellenirken bir hata oluştu.');
+            toast.error('Bilgi güncellenirken bir hata oluştu.');
         }
     };
 
@@ -126,9 +126,10 @@ function EditForm() {
                     />
                 </div>
                 <button type="submit">Güncelle</button>
+                <button onClick={() => navigate('/dashboard')}>AdminDashboard'a Dön</button>
             </form>
-            {message && <p>{message}</p>}
-            {error && <p style={{ color: 'red' }}>{error}</p>}
+            
+            <ToastContainer />
         </div>
     );
 }
