@@ -7,6 +7,9 @@ body {
     background-size: cover;
     color: #333;
     background-color: #f0f0f0; /* Arka plan rengini gri yap */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Sayfa yüksekliði */
 }
 
 /* Header */
@@ -19,6 +22,9 @@ body {
     position: sticky;
     top: 0;
     z-index: 1000;
+    margin: 0 auto; /* Ortaya hizalar */
+    width: 80%; /* Geniþliði %80 olarak ayarlar */
+    margin-bottom: 50px; /* Header ile içerik arasýnda 50px boþluk */
 }
 
     .header h1 {
@@ -51,12 +57,29 @@ body {
 
 /* Ana Ýçerik */
 .main-content {
-    padding: 2rem;
+    padding: 95px; /* Ýçeriðin header ve footer arasýnda 5px boþluk býrakmak için */
     max-width: 1200px;
-    margin: 0 auto;
+    margin-bottom: 50px; /* Ýçerikle footer arasýnda 50px boþluk */
     background: rgba(255, 255, 255, 0.9);
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    flex: 1; /* Ýçeriðin header ve footer arasýnda düzgün hizalanmasý için */
+}
+
+/* Footer */
+.footer {
+    background-color: #003366;
+    color: white;
+    padding: 20px 0;
+    width: 80%;
+    position: relative;
+    margin: 0 auto; /* Ortaya hizalar */
+    bottom: 0;
+    left: 0;
+    text-align: center;
+    border-top: 2px solid #007bff; /* Footer'ýn üstüne mavi bir kenarlýk ekledik */
+    margin-top: 50px; /* Ýçerikle footer arasýnda 50px boþluk */
+    z-index: 1000; /* Üst üste binme sorunlarýný önlemek için */
 }
 
 /* Operasyon Seçici */
@@ -147,7 +170,8 @@ form {
     }
 
         form button:hover {
-            background: #ff4d4d;
+            background: #fff;
+            color: #007bff;
         }
 
     form p {
@@ -182,6 +206,7 @@ form {
             border-radius: 5px;
         }
 
+/* React App Logo */
 .App {
     text-align: center;
 }
@@ -221,5 +246,3 @@ form {
         transform: rotate(360deg);
     }
 }
-
-

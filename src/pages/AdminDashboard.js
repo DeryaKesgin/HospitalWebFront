@@ -159,6 +159,9 @@ function AdminDashboard() {
                     </div>
                 ))}
             </div>
+            {!selectedItem && searchResults.length > 0 && (
+                <button className="add-new-button" onClick={handleAddNew}>Yeni Kayıt Ekle</button>
+            )}
             {selectedItem && (
                 <div className="selected-item-details">
                     <h2>Seçilen {selectedOperation === 'patient' ? 'Hasta' : 'Doktor'} Bilgileri</h2>
@@ -176,13 +179,12 @@ function AdminDashboard() {
                             <p><strong>Aktiflik Durumu:</strong> {selectedItem.activity ? 'Aktif' : 'Pasif'}</p>
                         </>
                     )}
+                    <div className="action-buttons">
+                        <button className="update-button" onClick={handleUpdate}>Bilgileri Güncelle</button>
+                        <button className="delete-button" onClick={handleDelete}>Kayıt Sil</button>
+                    </div>
                 </div>
             )}
-            <div className="action-buttons">
-                <button onClick={handleAddNew}>Yeni Ekle</button>
-                <button onClick={handleUpdate}>Bilgileri Güncelle</button>
-                <button onClick={handleDelete}>Kayıt Sil</button>
-            </div>
         </div>
     );
 }

@@ -1,0 +1,62 @@
+/* Ana kapsayýcý */
+body, html {
+    margin: 0;
+    padding: 0;
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Ýçerik kýsmý */
+.main-content {
+    flex: 1;
+}
+
+/* Footer */
+.footer {
+    background-color: #003366;
+    color: white;
+    padding: 20px 0;
+    width: 100%;
+    margin-top: 0px; /* Ýçerikle arasýnda 90px boþluk býrakýr */
+    /* Footer'ý sayfa akýþýna dahil eder */
+    position: relative;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.footer-section {
+    text-align: center;
+    flex: 1;
+    padding: 10px;
+}
+
+    .footer-section p {
+        margin-top: 10px;
+        font-size: 0.9rem;
+        color: #e6e6e6;
+    }
+
+.footer-icon {
+    font-size: 2rem;
+    color: #ffcc00;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding: 10px 0;
+    border-top: 1px solid #e6e6e6;
+}
+
+    .footer-bottom p {
+        margin: 0;
+        font-size: 0.8rem;
+        color: #ccc;
+    }

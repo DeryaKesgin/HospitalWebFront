@@ -121,7 +121,7 @@ function DoctorDashboard() {
                 <div className="search-by-name">
                     <input
                         type="text"
-                        placeholder="Ad veya soyad ile hasta arayın"
+                        placeholder="Hasta arayın"
                         value={searchTerm}
                         onChange={(e) => setSearchTerm(e.target.value)}
                     />
@@ -142,11 +142,11 @@ function DoctorDashboard() {
                 <div className="search-by-diagnosis">
                     <input
                         type="text"
-                        placeholder="Tanı ile arayın"
+                        placeholder="Kayıtlı tanı arayın"
                         value={diagnosisTerm}
                         onChange={(e) => setDiagnosisTerm(e.target.value)}
                     />
-                    <button onClick={handleDiagnosisSearch}>Tanıya Göre Ara</button>
+                    <button onClick={handleDiagnosisSearch}>Ara</button>
                     {diagnosisResults.length > 0 ? (
                         <table>
                             <thead>

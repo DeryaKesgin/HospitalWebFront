@@ -1,62 +1,29 @@
-﻿import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+﻿import React from 'react';
+import { Link } from 'react-router-dom';
+import { FaUserMd, FaUser, FaUserShield } from 'react-icons/fa'; // İkonlar için react-icons kütüphanesini ekleyin
+import './Login.css'; // Stillerin uygulanacağı CSS dosyası
 
 function Login() {
-    const [username, setUsername] = useState('');
-    const [password, setPassword] = useState('');
-    const [userType, setUserType] = useState(''); // 'doctor', 'patient', 'admin'
-    const navigate = useNavigate();
-
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        if (username && password) {
-            // Kullanıcı türüne göre yönlendirme yapın
-            if (userType === 'doctor') {
-                navigate('/appointments');
-            } else if (userType === 'patient') {
-                navigate('/patients');
-            } else if (userType === 'admin') {
-                navigate('/dashboard');
-            }
-        } else {
-            alert('Lütfen kullanıcı adı ve şifre girin.');
-        }
-    };
-
     return (
-        <div>
-            <h2>Giriş Yap</h2>
-            <form onSubmit={handleSubmit}>
-                <div>
-                    <label>Kullanıcı Adı:</label>
-                    <input
-                        type="text"
-                        value={username}
-                        onChange={(e) => setUsername(e.target.value)}
-                    />
+        <div className="login-page">
+           
+            <div className="login-container">
+                <div className="login-buttons">
+                    <Link to="/login/doctor" className="login-button">
+                        <FaUserMd className="login-icon" />
+                        Doktor Girişi
+                    </Link>
+                    <Link to="/login/patient" className="login-button">
+                        <FaUser className="login-icon" />
+                        Hasta Girişi
+                    </Link>
+                    <Link to="/login/admin" className="login-button">
+                        <FaUserShield className="login-icon" />
+                        Admin Girişi
+                    </Link>
                 </div>
-                <div>
-                    <label>Şifre:</label>
-                    <input
-                        type="password"
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
-                    />
-                </div>
-                <div>
-                    <label>Kullanıcı Tipi:</label>
-                    <select
-                        value={userType}
-                        onChange={(e) => setUserType(e.target.value)}
-                    >
-                        <option value="">Seçiniz</option>
-                        <option value="doctor">Doktor</option>
-                        <option value="patient">Hasta</option>
-                        <option value="admin">Admin</option>
-                    </select>
-                </div>
-                <button type="submit">Giriş Yap</button>
-            </form>
+            </div>
+            
         </div>
     );
 }

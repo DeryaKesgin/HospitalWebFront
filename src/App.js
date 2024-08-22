@@ -1,6 +1,8 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
+import Footer from './components/Footer';
+import Login from './pages/Login'; // Login sayfasýný içe aktar
 import DoctorLogin from './pages/DoctorLogin';
 import PatientLogin from './pages/PatientLogin';
 import AdminLogin from './pages/AdminLogin';
@@ -14,15 +16,12 @@ import AddDoctor from './pages/AddDoctor';
 import NewExaminationForm from './pages/NewExaminationForm';
 import EditForm from './pages/EditForm';
 
-
-
-
-// App.js içeriði   
 function App() {
     return (
         <Router>
             <Header />
             <Routes>
+                <Route path="/" element={<Login />} /> {/* Ýlk olarak Login sayfasýný göster */}
                 <Route path="/login/doctor" element={<DoctorLogin />} />
                 <Route path="/login/patient" element={<PatientLogin />} />
                 <Route path="/login/admin" element={<AdminLogin />} />
@@ -35,8 +34,8 @@ function App() {
                 <Route path="/add-doctor" element={<AddDoctor />} />
                 <Route path="/add-examination" element={<NewExaminationForm />} />
                 <Route path="/edit-form" element={<EditForm />} />
-
             </Routes>
+            <Footer />
         </Router>
     );
 }

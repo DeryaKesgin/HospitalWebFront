@@ -1,0 +1,63 @@
+/* Genel Stil */
+
+/* Footer */
+.footer {
+    position: relative;
+    background-color: #003366;
+    color: white;
+    padding: 20px 0;
+    width: 100%;
+    position: relative;
+    bottom: 0;
+    left: 0;
+    text-align: center;
+    border-top: 2px solid #007bff;
+    z-index: 1000;
+}
+
+/* Container */
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; /* Ýçeriði dikeyde ortalamak için */
+    height: calc(100vh - 120px); /* Butonlar ve içerik arasýndaki boþluðu ayarlamak için */
+    margin: 0; /* Margin'leri kaldýrarak tam ortalama saðlarýz */
+    width: 100%; /* Tam geniþlik */
+}
+
+/* Butonlar */
+.login-buttons {
+    display: flex;
+    flex-direction: row; /* Butonlarý yan yana hizalamak için */
+    justify-content: center;
+    align-items: center; /* Dikeyde ortalamak için */
+    gap: 20px; /* Butonlar arasýndaki boþluk */
+}
+
+.login-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    font-size: 1.5rem; /* Buton font boyutunu büyüttük */
+    color: #ffffff;
+    background: linear-gradient(to bottom, #007bff, #003366); /* Üstten alta renk geçiþi */
+    text-decoration: none;
+    border-radius: 10px;
+    transition: background 0.3s ease-in-out, transform 0.3s ease-in-out;
+    gap: 10px;
+    width: 200px; /* Buton geniþliðini artýrarak büyütme */
+    height: 150px; /* Buton yüksekliðini artýrarak büyütme */
+    text-align: center; /* Yazýlarý ortalar */
+}
+
+    .login-button:hover {
+        background-color: #ffcc00; /* Hover durumunda arka plan rengi deðiþir */
+        transform: scale(1.05); /* Hover durumunda buton biraz büyür */
+    }
+
+.login-icon {
+    font-size: 2.5rem; /* Ýkon boyutunu büyüttük */
+}

@@ -1,23 +1,24 @@
+/* Header */
 header {
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px;
-    background: #007bff;
-    /* color: #fff;*/
+    align-items: center; /* Elemanlarý dikey olarak ortalar */
+    padding: 20px; /* Dikey uzunluðu artýrýldý */
     border-bottom: 1px solid #ddd;
+    background-color: #007bff; /* Header arka plan rengi */
+    color: #ffffff;
+    position: relative;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
 }
 
     header h1 {
-        font-size: 1.8rem;
+        font-size: 2rem; /* Baþlýk font boyutu */
         margin: 0;
-        color: #f0f0f0;
-
-    }
-
-    header span {
-        font-size: 1.2rem;
-        color: #f0f0f0;
+        display: flex;
+        align-items: center; /* Baþlýðý dikeyde ortalar */
     }
 
     header nav ul {
@@ -25,36 +26,43 @@ header {
         list-style-type: none;
         margin: 0;
         padding: 0;
+        align-items: center; /* Navigasyon öðelerini dikeyde ortalar */
     }
 
         header nav ul li {
-            margin: 0 15px;
+            margin: 0 10px; /* Giriþ linkleri arasýndaki boþluk */
         }
 
             header nav ul li a {
-                color: #fff;
+                color: #ffffff;
                 text-decoration: none;
                 font-size: 1rem;
                 padding: 0.5rem 1rem;
                 border-radius: 5px;
                 transition: background 0.3s ease-in-out;
+                display: flex;
+                align-items: center; /* Linkleri dikeyde ortalar */
             }
 
                 header nav ul li a:hover {
                     background: #0056b3;
                 }
 
-    header button {
-        padding: 0.5rem 1rem;
-        border: none;
-        border-radius: 5px;
-        background: #ff4d4d;
-        color: #fff;
-        font-size: 1rem;
-        cursor: pointer;
-        transition: background 0.3s ease-in-out;
-    }
+/* Logout Butonu */
+button {
+    padding: 10px;
+    border-color: #fff;
+    margin: 4px 40px 4px 4px;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: #ffffff;
+    cursor: pointer;
+    font-size: 1rem;
+    display: flex;
+    align-items: center; /* Butonu dikeyde ortalar */
+}
 
-        header button:hover {
-            background: #e03e3e;
-        }
+    button:hover {
+        color: #007bff;
+        background-color: #fff;
+    }

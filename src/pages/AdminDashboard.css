@@ -89,9 +89,17 @@
         background-color: #007bff; /* Aktif kiþiler için arka plan rengi */
     }
 
+        .search-result-item.active:hover {
+            background-color: #0056b3;
+        }
+
     .search-result-item.inactive {
         background-color: #54575a44; /* Pasif kiþiler için daha silik bir mavi arka plan rengi */
     }
+
+        .search-result-item.inactive:hover {
+            background-color: #7c7b7b;
+        }
 
     .search-result-item.selected {
         background-color: #0056b3; /* Seçilen aktif kiþi için arka plan rengi */
@@ -131,6 +139,22 @@
             font-weight: bold;
             color: #555;
         }
+
+.add-new-button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    border: none;
+    background-color: #28a745;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    margin-bottom: 20px; /* Butonun çevresine boþluk eklemek için */
+}
+
+.add-new-button:hover {
+    background-color: #218838;
+}
 
 .action-buttons {
     display: flex;
