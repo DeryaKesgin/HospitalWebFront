@@ -7,7 +7,6 @@
     color: white;
     padding: 20px 0;
     width: 100%;
-    position: relative;
     bottom: 0;
     left: 0;
     text-align: center;
@@ -33,6 +32,7 @@
     justify-content: center;
     align-items: center; /* Dikeyde ortalamak için */
     gap: 20px; /* Butonlar arasýndaki boþluk */
+    flex-wrap: wrap; /* Butonlarý satýra sýðdýrmak için sarma özelliði ekledik */
 }
 
 .login-button {
@@ -60,4 +60,80 @@
 
 .login-icon {
     font-size: 2.5rem; /* Ýkon boyutunu büyüttük */
+}
+
+/* Responsive Tasarým */
+
+/* Küçük ekranlar (tabletler ve büyük telefonlar) için */
+@media (max-width: 768px) {
+    .footer {
+        padding: 15px 0; /* Footer padding'ini küçült */
+    }
+
+    .login-container {
+        height: auto; /* Yüksekliði otomatik yaparak içerik sýðdýrmayý saðla */
+        padding: 1rem; /* Ýç boþluk ekle */
+    }
+
+    .login-buttons {
+        flex-direction: column; /* Butonlarý dikey hizala */
+        gap: 15px; /* Butonlar arasýndaki boþluðu küçült */
+    }
+
+    .login-button {
+        width: 100%; /* Buton geniþliðini %100 yap */
+        height: auto; /* Buton yüksekliðini otomatik yap */
+        padding: 15px; /* Paddingi azalt */
+        font-size: 1.2rem; /* Font boyutunu küçült */
+    }
+
+    .login-icon {
+        font-size: 2rem; /* Ýkon boyutunu küçült */
+    }
+}
+
+/* Orta ekranlar (küçük tabletler ve büyük telefonlar) için */
+@media (max-width: 1024px) {
+    .footer {
+        padding: 18px 0; /* Footer padding'ini biraz küçült */
+    }
+
+    .login-container {
+        height: calc(100vh - 100px); /* Yüksekliði ayarla */
+    }
+
+    .login-buttons {
+        gap: 15px; /* Butonlar arasýndaki boþluðu küçült */
+    }
+
+    .login-button {
+        width: 180px; /* Buton geniþliðini biraz küçült */
+        height: 130px; /* Buton yüksekliðini biraz küçült */
+    }
+}
+
+/* Büyük ekranlar (masaüstü) için */
+@media (min-width: 1200px) {
+    .footer {
+        padding: 20px 0; /* Footer padding'ini artýr */
+    }
+
+    .login-container {
+        height: calc(100vh - 120px); /* Yüksekliði orijinal olarak ayarla */
+    }
+
+    .login-buttons {
+        gap: 20px; /* Butonlar arasýndaki boþluðu artýr */
+    }
+
+    .login-button {
+        width: 200px; /* Buton geniþliðini artýr */
+        height: 150px; /* Buton yüksekliðini artýr */
+        padding: 20px; /* Paddingi artýr */
+        font-size: 1.5rem; /* Font boyutunu artýr */
+    }
+
+    .login-icon {
+        font-size: 2.5rem; /* Ýkon boyutunu artýr */
+    }
 }

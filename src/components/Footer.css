@@ -1,4 +1,4 @@
-/* Ana kapsayýcý */
+/* Genel Stil */
 body, html {
     margin: 0;
     padding: 0;
@@ -18,8 +18,7 @@ body, html {
     color: white;
     padding: 20px 0;
     width: 100%;
-    margin-top: 0px; /* Ýçerikle arasýnda 90px boþluk býrakýr */
-    /* Footer'ý sayfa akýþýna dahil eder */
+    margin-top: 0px;
     position: relative;
 }
 
@@ -60,3 +59,52 @@ body, html {
         font-size: 0.8rem;
         color: #ccc;
     }
+
+/* Responsive Tasarým */
+
+/* Küçük ekranlar (tabletler ve büyük telefonlar) için */
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column; /* Footer içeriklerini dikey hizala */
+        padding: 0 10px; /* Paddingi azalt */
+    }
+
+    .footer-section {
+        padding: 5px; /* Paddingi azalt */
+    }
+
+    .footer-icon {
+        font-size: 1.5rem; /* Ýkon boyutunu küçült */
+    }
+
+    .footer-bottom {
+        padding: 5px 0; /* Paddingi azalt */
+    }
+
+        .footer-bottom p {
+            font-size: 0.7rem; /* Yazý boyutunu küçült */
+        }
+}
+
+/* Büyük ekranlar (masaüstü) için */
+@media (min-width: 1200px) {
+    .footer-content {
+        padding: 0 40px; /* Paddingi artýr */
+    }
+
+    .footer-section p {
+        font-size: 1rem; /* Yazý boyutunu artýr */
+    }
+
+    .footer-icon {
+        font-size: 2.5rem; /* Ýkon boyutunu artýr */
+    }
+
+    .footer-bottom {
+        padding: 15px 0; /* Paddingi artýr */
+    }
+
+        .footer-bottom p {
+            font-size: 0.9rem; /* Yazý boyutunu artýr */
+        }
+}

@@ -246,3 +246,123 @@ form {
         transform: rotate(360deg);
     }
 }
+
+/* Responsive Tasarým */
+
+/* Küçük ekranlar (tabletler ve büyük telefonlar) için */
+@media (max-width: 768px) {
+    /* Genel Stil */
+    body {
+        padding: 10px; /* Kenar boþluklarýný azalt */
+        font-size: 0.9rem; /* Yazý boyutunu küçült */
+    }
+
+    /* Header */
+    .header {
+        padding: 1rem;
+        width: 100%; /* Geniþliði %100 yap */
+    }
+
+        .header h1 {
+            font-size: 1.5rem; /* Baþlýk yazý boyutunu küçült */
+        }
+
+        .header nav ul {
+            flex-direction: column; /* Menü öðelerini dikey hizala */
+        }
+
+            .header nav ul li {
+                margin: 0.5rem 0; /* Menü öðeleri arasýndaki boþluðu azalt */
+            }
+
+    /* Ana Ýçerik */
+    .main-content {
+        padding: 2rem 1rem;
+        margin: 20px auto;
+    }
+
+    /* Operasyon Seçici */
+    .operation-selector {
+        flex-direction: column; /* Düðmeleri dikey hizala */
+    }
+
+        .operation-selector button {
+            width: 100%; /* Düðmeleri tam geniþlikte yap */
+            margin-bottom: 10px; /* Düðmeler arasýna boþluk ekle */
+        }
+
+    /* Form Stili */
+    form {
+        max-width: 100%; /* Formun geniþliðini %100 yap */
+        padding: 1rem;
+    }
+
+        form h2 {
+            font-size: 1.25rem; /* Baþlýk yazý boyutunu küçült */
+        }
+
+    /* Arama Sonuçlarý */
+    .search-results h3 {
+        font-size: 1rem; /* Baþlýk yazý boyutunu küçült */
+    }
+
+    .search-results ul li {
+        padding: 0.75rem;
+    }
+
+    /* Footer */
+    .footer {
+        padding: 1rem;
+        width: 100%; /* Geniþliði %100 yap */
+        margin-top: 20px; /* Üst boþluðu azalt */
+    }
+}
+
+/* Büyük ekranlar (masaüstü) için */
+@media (min-width: 1200px) {
+    /* Genel Stil */
+    body {
+        font-size: 1.1rem; /* Yazý boyutunu artýr */
+    }
+
+    /* Header */
+    .header h1 {
+        font-size: 2.5rem; /* Baþlýk yazý boyutunu artýr */
+    }
+
+    /* Ana Ýçerik */
+    .main-content {
+        padding: 4rem;
+        max-width: 1400px; /* Ýçeriðin geniþliðini artýr */
+    }
+
+    /* Operasyon Seçici */
+    .operation-selector button {
+        padding: 1rem 2rem;
+        font-size: 1.25rem; /* Düðme yazý boyutunu artýr */
+    }
+
+    /* Form Stili */
+    form {
+        max-width: 500px; /* Formun geniþliðini artýr */
+        padding: 3rem;
+    }
+
+        form h2 {
+            font-size: 2rem; /* Baþlýk yazý boyutunu artýr */
+        }
+
+    /* Arama Sonuçlarý */
+    .search-results h3 {
+        font-size: 1.5rem; /* Baþlýk yazý boyutunu artýr */
+    }
+
+    .search-results ul li {
+        padding: 1.5rem;
+    }
+
+    /* Footer */
+    .footer {
+        padding: 2rem;
+    }
+}

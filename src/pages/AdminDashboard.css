@@ -1,3 +1,4 @@
+/* Admin Dashboard */
 .admin-dashboard {
     display: flex;
     flex-direction: column;
@@ -152,9 +153,9 @@
     margin-bottom: 20px; /* Butonun çevresine boþluk eklemek için */
 }
 
-.add-new-button:hover {
-    background-color: #218838;
-}
+    .add-new-button:hover {
+        background-color: #218838;
+    }
 
 .action-buttons {
     display: flex;
@@ -186,3 +187,142 @@
         .action-buttons button:hover {
             opacity: 0.9;
         }
+
+/* Responsive Tasarým */
+
+/* Küçük ekranlar (tabletler ve büyük telefonlar) için */
+@media (max-width: 768px) {
+    .admin-dashboard {
+        padding: 15px; /* Paddingi azalt */
+    }
+
+    .welcome-message {
+        font-size: 1.25rem; /* Font boyutunu küçült */
+    }
+
+    .operation-selector {
+        flex-direction: column; /* Butonlarý dikey hizala */
+        gap: 5px; /* Butonlar arasýndaki boþluðu azalt */
+    }
+
+        .operation-selector button {
+            font-size: 0.9rem; /* Font boyutunu küçült */
+            padding: 8px 15px; /* Paddingi azalt */
+        }
+
+    .search-section {
+        flex-direction: column; /* Arama kýsmýný dikey hizala */
+        gap: 5px; /* Arama bileþenleri arasýndaki boþluðu azalt */
+    }
+
+        .search-section input {
+            width: 100%; /* Arama kutusunun geniþliðini artýr */
+        }
+
+        .search-section button {
+            font-size: 0.9rem; /* Font boyutunu küçült */
+            padding: 8px 15px; /* Paddingi azalt */
+        }
+
+    .search-results {
+        max-width: 100%; /* Arama sonuçlarýnýn geniþliðini artýr */
+    }
+
+    .search-result-item {
+        font-size: 0.9rem; /* Font boyutunu küçült */
+        padding: 8px; /* Paddingi azalt */
+    }
+
+    .selected-item-details {
+        padding: 15px; /* Paddingi azalt */
+        max-width: 100%; /* Detaylar kutusunun geniþliðini artýr */
+    }
+
+        .selected-item-details h3 {
+            font-size: 1.1rem; /* Baþlýk font boyutunu küçült */
+        }
+
+        .selected-item-details p {
+            font-size: 0.9rem; /* Font boyutunu küçült */
+        }
+
+    .add-new-button {
+        font-size: 0.9rem; /* Font boyutunu küçült */
+        padding: 8px 15px; /* Paddingi azalt */
+    }
+
+    .action-buttons {
+        flex-direction: column; /* Aksiyon butonlarýný dikey hizala */
+        gap: 5px; /* Butonlar arasýndaki boþluðu azalt */
+    }
+
+        .action-buttons button {
+            font-size: 0.9rem; /* Font boyutunu küçült */
+            padding: 8px 15px; /* Paddingi azalt */
+        }
+}
+
+/* Büyük ekranlar (masaüstü) için */
+@media (min-width: 1200px) {
+    .admin-dashboard {
+        padding: 25px; /* Paddingi artýr */
+    }
+
+    .welcome-message {
+        font-size: 1.75rem; /* Font boyutunu artýr */
+    }
+
+    .operation-selector {
+        gap: 15px; /* Butonlar arasýndaki boþluðu artýr */
+    }
+
+        .operation-selector button {
+            font-size: 1.1rem; /* Font boyutunu artýr */
+            padding: 12px 25px; /* Paddingi artýr */
+        }
+
+    .search-section input {
+        width: 250px; /* Arama kutusunun geniþliðini artýr */
+    }
+
+    .search-section button {
+        font-size: 1.1rem; /* Font boyutunu artýr */
+        padding: 12px 25px; /* Paddingi artýr */
+    }
+
+    .search-results {
+        max-width: 100%; /* Arama sonuçlarýnýn geniþliðini artýr */
+    }
+
+    .search-result-item {
+        font-size: 1.1rem; /* Font boyutunu artýr */
+        padding: 12px; /* Paddingi artýr */
+    }
+
+    .selected-item-details {
+        padding: 25px; /* Paddingi artýr */
+        max-width: 100%; /* Detaylar kutusunun geniþliðini artýr */
+    }
+
+        .selected-item-details h3 {
+            font-size: 1.5rem; /* Baþlýk font boyutunu artýr */
+        }
+
+        .selected-item-details p {
+            font-size: 1.1rem; /* Font boyutunu artýr */
+        }
+
+    .add-new-button {
+        font-size: 1.1rem; /* Font boyutunu artýr */
+        padding: 12px 25px; /* Paddingi artýr */
+    }
+
+    .action-buttons {
+        gap: 15px; /* Butonlar arasýndaki boþluðu artýr */
+    }
+
+        .action-buttons button {
+            font-size: 1.1rem; /* Font boyutunu artýr */
+            padding: 12px 25px; /* Paddingi artýr */
+        }
+}

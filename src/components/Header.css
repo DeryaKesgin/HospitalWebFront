@@ -66,3 +66,63 @@ button {
         color: #007bff;
         background-color: #fff;
     }
+
+/* Responsive Tasarým */
+
+/* Küçük ekranlar (tabletler ve büyük telefonlar) için */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column; /* Header içeriðini dikey hizala */
+        align-items: flex-start; /* Header öðelerini sola hizala */
+        padding: 15px; /* Paddingi azalt */
+    }
+
+        header h1 {
+            font-size: 1.5rem; /* Baþlýk font boyutunu küçült */
+            margin-bottom: 10px; /* Baþlýk ile navigasyon arasýna boþluk ekle */
+        }
+
+        header nav ul {
+            flex-direction: column; /* Navigasyon öðelerini dikey hizala */
+            width: 100%; /* Navigasyonun geniþliðini tam yap */
+        }
+
+            header nav ul li {
+                margin: 5px 0; /* Linkler arasýndaki boþluðu azalt */
+            }
+
+                header nav ul li a {
+                    font-size: 0.9rem; /* Link font boyutunu küçült */
+                    padding: 0.5rem; /* Paddingi azalt */
+                }
+
+    button {
+        margin: 4px 0; /* Butonun kenar boþluklarýný azalt */
+        font-size: 0.9rem; /* Buton font boyutunu küçült */
+    }
+}
+
+/* Büyük ekranlar (masaüstü) için */
+@media (min-width: 1200px) {
+    header {
+        padding: 25px; /* Paddingi artýr */
+    }
+
+        header h1 {
+            font-size: 2.5rem; /* Baþlýk font boyutunu büyüt */
+        }
+
+        header nav ul li {
+            margin: 0 15px; /* Linkler arasýndaki boþluðu artýr */
+        }
+
+            header nav ul li a {
+                font-size: 1.1rem; /* Link font boyutunu artýr */
+                padding: 0.75rem 1.25rem; /* Paddingi artýr */
+            }
+
+    button {
+        margin: 4px 60px 4px 4px; /* Butonun kenar boþluklarýný artýr */
+        font-size: 1.1rem; /* Buton font boyutunu artýr */
+    }
+}

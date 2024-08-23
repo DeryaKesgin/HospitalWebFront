@@ -34,8 +34,6 @@ li {
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-   
-
     li:last-child {
         margin-bottom: 40px;
     }
@@ -63,6 +61,11 @@ p {
 
 /* Medya Sorgularý (Responsive Tasarým) */
 @media (max-width: 768px) {
+    body {
+        margin: 0;
+        padding: 0;
+    }
+
     h2 {
         font-size: 1.5em;
     }
@@ -71,11 +74,35 @@ p {
         font-size: 1.2em;
     }
 
+    ul {
+        padding: 0 10px; /* Listelerin kenar boþluklarýný daralt */
+    }
+
     li {
         padding: 10px;
+        margin-bottom: 10px;
     }
 
     strong {
         width: auto;
+    }
+}
+
+@media (max-width: 480px) {
+    h2 {
+        font-size: 1.2em; /* Daha küçük ekranlar için h2 font boyutunu küçült */
+    }
+
+    h3 {
+        font-size: 1em; /* Daha küçük ekranlar için h3 font boyutunu küçült */
+    }
+
+    ul {
+        padding: 0 5px; /* Listelerin kenar boþluklarýný daha da daralt */
+    }
+
+    li {
+        padding: 8px;
+        margin-bottom: 8px;
     }
 }
