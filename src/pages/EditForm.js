@@ -8,7 +8,7 @@ function EditForm() {
     const location = useLocation();
     const navigate = useNavigate();
     const { item, isPatient } = location.state || {};
-    const [id, setId] = useState(isPatient ? item.hastaId : item.doktorId);
+    const [id, setId] = useState(isPatient ? item.patientId : item.doctorId);
     const [firstName, setFirstName] = useState(item?.firstName || '');
     const [lastName, setLastName] = useState(item?.lastName || '');
     const [email, setEmail] = useState(item?.email || '');
@@ -47,7 +47,7 @@ function EditForm() {
             console.clear();
             console.log(data);
             const apiEndpoint = isPatient
-                ? `https://localhost:44345/api/Hasta/${id}`
+                ? `https://localhost:44345/api/Patient/${id}`
                 : `https://localhost:44345/api/Doctor/${id}`;
 
             const response = await axios.put(apiEndpoint, data);

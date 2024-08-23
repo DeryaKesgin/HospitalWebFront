@@ -23,7 +23,7 @@ function PatientLogin() {
         if (email && password) {
             try {
                 const response = await axios.post(
-                    `https://localhost:44345/api/Hasta/login`,
+                    `https://localhost:44345/api/Patient/Login`,
                     { email, password },
                     {
                         headers: {
@@ -34,13 +34,13 @@ function PatientLogin() {
                 );
                 console.log('API Yanıtı:', response.data);
                 if (response.data.success) {
-                    localStorage.setItem('patientId', response.data.hastaInfo.hastaId);
+                    localStorage.setItem('patientId', response.data.patientInfo.patientId);
 
                     navigate('/patients', {
                         state: {
-                            patientId: response.data.hastaInfo.hastaId,
-                            firstName: response.data.hastaInfo.firstName,
-                            lastName: response.data.hastaInfo.lastName
+                            patientId: response.data.patientInfo.patientId,
+                            firstName: response.data.patientInfo.firstName,
+                            lastName: response.data.patientInfo.lastName
                         }
                     });
                 } else {

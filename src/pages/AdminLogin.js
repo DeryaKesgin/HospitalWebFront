@@ -13,7 +13,7 @@ function AdminLogin() {
         if (email && password) {
             try {
                 const response = await axios.post(
-                    'https://localhost:44345/api/Admin/login',
+                    'https://localhost:44345/api/Admin/Login',
                     {
                         email: email,
                         password: password

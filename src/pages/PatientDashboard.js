@@ -26,7 +26,7 @@ function PatientDashboard() {
         if (patientId) {
             const fetchExaminations = async () => {
                 try {
-                    const response = await axios.get(`https://localhost:44345/api/Examination/history/${patientId}`);
+                    const response = await axios.get(`https://localhost:44345/api/Examination/History/${patientId}`);
                     setExaminations(response.data);
                 } catch (error) {
                     console.error('Muayeneleri alırken bir hata oluştu:', error);

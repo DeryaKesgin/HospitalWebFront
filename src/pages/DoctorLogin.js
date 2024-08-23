@@ -13,7 +13,7 @@ function DoctorLogin() {
         if (email && password) {
             try {
                 const response = await axios.post(
-                    `https://localhost:44345/api/Doctor/login`,
+                    `https://localhost:44345/api/Doctor/Login`,
                     {
                         email: email,
                         password: password
@@ -30,9 +30,9 @@ function DoctorLogin() {
                     localStorage.setItem('doctorId', response.data.doctorId);
                     navigate('/appointments', {
                         state: {
-                            doctorId: response.data.doktorInfo.doktorId,
-                            doctorFirstName: response.data.doktorInfo.firstName,
-                            doctorLastName: response.data.doktorInfo.lastName
+                            doctorId: response.data.doctorInfo.doctorId,
+                            doctorFirstName: response.data.doctorInfo.firstName,
+                            doctorLastName: response.data.doctorInfo.lastName
                         }
                     });
                 } else {

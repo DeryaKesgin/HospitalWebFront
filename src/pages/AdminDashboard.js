@@ -51,7 +51,7 @@ function AdminDashboard() {
         setErrorMessage('');
         setNoDataMessage('');
         const apiEndpoint = selectedOperation === 'patient'
-            ? 'https://localhost:44345/api/Hasta/WithFilter'
+            ? 'https://localhost:44345/api/Patient/WithFilter'
             : 'https://localhost:44345/api/Doctor/WithFilter';
 
         try {
@@ -95,8 +95,8 @@ function AdminDashboard() {
     const handleDelete = async () => {
         if (selectedItem) {
             const apiEndpoint = selectedOperation === 'patient'
-                ? `https://localhost:44345/api/Hasta/${selectedItem.hastaId}`
-                : `https://localhost:44345/api/Doctor/${selectedItem.doktorId}`;
+                ? `https://localhost:44345/api/Patient/${selectedItem.patientId}`
+                : `https://localhost:44345/api/Doctor/${selectedItem.doctorId}`;
 
             try {
                 await axios.delete(apiEndpoint);

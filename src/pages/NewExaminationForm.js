@@ -27,8 +27,8 @@ function NewExaminationForm() {
         e.preventDefault();
 
         const data = {
-            hastaId: patientId,
-            doktorId: doctorId,
+            patientId: patientId,
+            doctorId: doctorId,
             complaint: complaint,
             diagnosis: diagnosis,
             prescription: prescription
@@ -37,7 +37,7 @@ function NewExaminationForm() {
         console.log('Gönderilen veri:', data);
 
         try {
-            const response = await axios.post('https://localhost:44345/api/Examination/addExamination', data);
+            const response = await axios.post('https://localhost:44345/api/Examination/AddExamination', data);
             if (response.status === 200 || response.status === 201) {
                 toast.success('Muayene kaydı başarıyla eklendi!');
                 setComplaint('');

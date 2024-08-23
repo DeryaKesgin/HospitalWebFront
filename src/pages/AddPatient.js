@@ -29,7 +29,7 @@ function AddPatient() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post('https://localhost:44345/api/Hasta', {
+            const response = await axios.post('https://localhost:44345/api/Patient', {
                 firstName,
                 lastName,
                 email,

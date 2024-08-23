@@ -55,7 +55,7 @@ function DoctorDashboard() {
     const handleSearch = async () => {
         setNoDataMessage('');
         try {
-            const response = await axios.get(`https://localhost:44345/api/Hasta/WithFilterForDoctor?firstname=${searchTerm}&lastname=${searchTerm}`);
+            const response = await axios.get(`https://localhost:44345/api/Patient/WithFilterForDoctor?firstname=${searchTerm}&lastname=${searchTerm}`);
 
             if (response.data.length === 0) {
                 setNoDataMessage('Veri bulunamadı.');
@@ -90,7 +90,7 @@ function DoctorDashboard() {
     const handleSelectPatient = async (patient) => {
         setSelectedPatient(patient);
         try {
-            const response = await axios.get(`https://localhost:44345/api/Examination/history/${patient.hastaId}`);
+            const response = await axios.get(`https://localhost:44345/api/Examination/History/${patient.patientId}`);
             setExaminationHistory(response.data);
         } catch (error) {
             console.error('Muayene geçmişi alma hatası:', error);
@@ -103,7 +103,7 @@ function DoctorDashboard() {
         if (selectedPatient) {
             navigate('/add-examination', {
                 state: {
-                    patientId: selectedPatient.hastaId,
+                    patientId: selectedPatient.patientId,
                     doctorId: doctorId,  // Doktor ID'sini burada geçiriyoruz
                     doctorFirstName: doctorFirstName,
                     doctorLastName: doctorLastName
@@ -129,7 +129,7 @@ function DoctorDashboard() {
                     {patients.length > 0 ? (
                         <ul>
                             {patients.map((patient) => (
-                                <li key={patient.hastaId} onClick={() => handleSelectPatient(patient)}>
+                                <li key={patient.patientId} onClick={() => handleSelectPatient(patient)}>
                                     {patient.firstName || 'Adı Yok'} {patient.lastName || 'Soyadı Yok'}
                                 </li>
                             ))}
@@ -164,8 +164,8 @@ function DoctorDashboard() {
                             <tbody>
                                 {diagnosisResults.map((result) => (
                                     <tr key={result.id}>
-                                        <td>{result.hastaFirstName}</td>
-                                        <td>{result.hastaLastName}</td>
+                                        <td>{result.patientFirstName}</td>
+                                        <td>{result.patientLastName}</td>
                                         <td>{result.complaint}</td>
                                         <td>{result.diagnosis}</td>
                                         <td>{result.prescription}</td>
@@ -200,7 +200,7 @@ function DoctorDashboard() {
                             <tbody>
                                 {examinationHistory.map((exam) => (
                                     <tr key={exam.id}>
-                                        <td>{exam.hastaId}</td>
+                                        <td>{exam.patientId}</td>
                                         <td>{exam.complaint}</td>
                                         <td>{exam.diagnosis}</td>
                                         <td>{exam.prescription}</td>
