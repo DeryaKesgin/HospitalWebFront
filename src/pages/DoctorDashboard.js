@@ -114,8 +114,10 @@ function DoctorDashboard() {
 
     return (
         <div className="dashboard-container">
-            <h1>Doktor Kontrol Paneli</h1>
-            <p>Hoş geldiniz, Dr. {doctorFirstName} {doctorLastName}</p>
+            <p>
+                <i className="fas fa-user-md"></i> Hoş geldiniz, Dr. {doctorFirstName} {doctorLastName}
+            </p>
+
 
             <div className="search-section">
                 <div className="search-by-name">

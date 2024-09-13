@@ -26,8 +26,10 @@ function DoctorLogin() {
                     }
                 );
 
-                if (response.data.success) {
-                    localStorage.setItem('doctorId', response.data.doctorId);
+                if (response.data.token) {
+                    localStorage.setItem('token', response.data.token);
+                    localStorage.setItem('doctorId', response.data.doctorInfo.doctorId);
+
                     navigate('/appointments', {
                         state: {
                             doctorId: response.data.doctorInfo.doctorId,

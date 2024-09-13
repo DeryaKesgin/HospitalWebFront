@@ -1,7 +1,7 @@
 /* Genel Stil Ayarlarý */
 .dashboard-container {
     padding: 2rem;
-    padding-top: 5rem;
+    padding-top: 4rem; /* Yukarýdan daha fazla boþluk býrakýldý */
     padding-bottom: 5rem;
     max-width: 1200px;
     margin: 0 auto;
@@ -14,14 +14,21 @@
         color: #007bff;
         font-size: 2rem;
         margin-bottom: 1rem;
+        text-align: center; /* Ortalanmýþ */
     }
 
     .dashboard-container p {
-        font-size: 1.2rem;
-        color: #333;
-        margin-bottom: 2rem;
+        font-size: 55px;
+        color: #0056b3;
+        font-weight: bold;
+        margin: 80px;
+        margin-bottom: 110px;
+        text-align: center;
+        position: relative;
+        top: 0;
     }
 
+/* Diðer Stil Ayarlarý... (Aþaðýdaki kýsýmlar ayný kalabilir) */
 .search-section {
     display: flex;
     justify-content: space-between;
@@ -57,8 +64,9 @@
 
         .search-by-name button:hover,
         .search-by-diagnosis button:hover {
-            background: #ffff;
-            color: #007bff;
+            background: #0056b3;
+            color: #fff;
+            border: 1px solid #0056b3;
         }
 
     .search-by-name ul,
@@ -158,7 +166,7 @@
     }
 
         .examination-history button:hover {
-            background: #ff4d4d;
+            background: #0056b3;
         }
 
 /* Responsive Tasarým */
@@ -172,51 +180,51 @@
     }
 
         .dashboard-container h1 {
-            font-size: 1.5rem; /* Baþlýk font boyutunu küçült */
+            font-size: 1.5rem;
         }
 
         .dashboard-container p {
-            font-size: 1rem; /* Paragraf font boyutunu küçült */
+            font-size: 1rem;
         }
 
     .search-section {
-        flex-direction: column; /* Arama bölümlerini dikey hizala */
+        flex-direction: column;
     }
 
     .search-by-name,
     .search-by-diagnosis {
-        margin-right: 0; /* Sað boþluðu kaldýr */
-        margin-bottom: 1rem; /* Alt boþluðu artýr */
+        margin-right: 0;
+        margin-bottom: 1rem;
     }
 
         .search-by-name input,
         .search-by-diagnosis input {
-            width: 100%; /* Geniþliði artýr */
-            margin-right: 0; /* Sað boþluðu kaldýr */
+            width: 100%;
+            margin-right: 0;
         }
 
         .search-by-name button,
         .search-by-diagnosis button {
-            width: 100%; /* Geniþliði artýr */
-            margin-top: 0.5rem; /* Üst boþluðu artýr */
+            width: 100%;
+            margin-top: 0.5rem;
         }
 
         .search-by-name li {
-            font-size: 0.9rem; /* Liste öðeleri font boyutunu küçült */
-            padding: 0.75rem; /* Paddingi azalt */
+            font-size: 0.9rem;
+            padding: 0.75rem;
         }
 
         .search-by-diagnosis table,
         .examination-history table {
-            font-size: 0.9rem; /* Tablo font boyutunu küçült */
+            font-size: 0.9rem;
         }
 
     .examination-history h2 {
-        font-size: 1.25rem; /* Baþlýk font boyutunu küçült */
+        font-size: 1.25rem;
     }
 
     .examination-history button {
-        width: 100%; /* Buton geniþliðini artýr */
+        width: 100%;
     }
 }
 
@@ -229,47 +237,57 @@
     }
 
         .dashboard-container h1 {
-            font-size: 2.5rem; /* Baþlýk font boyutunu artýr */
+            font-size: 2.5rem;
         }
 
-        .dashboard-container p {
-            font-size: 1.4rem; /* Paragraf font boyutunu artýr */
-        }
+       
 
     .search-section {
-        flex-direction: row; /* Arama bölümlerini yatay hizala */
+        flex-direction: row;
     }
 
     .search-by-name,
     .search-by-diagnosis {
-        margin-right: 1rem; /* Sað boþluðu artýr */
+        margin-right: 1rem;
     }
 
         .search-by-name input,
         .search-by-diagnosis input {
-            width: calc(100% - 120px); /* Geniþliði artýr */
+            width: calc(100% - 120px);
         }
 
         .search-by-name button,
         .search-by-diagnosis button {
-            padding: 1rem 2rem; /* Paddingi artýr */
+            padding: 1rem 2rem;
         }
 
         .search-by-name li {
-            font-size: 1.1rem; /* Liste öðeleri font boyutunu artýr */
-            padding: 1rem; /* Paddingi artýr */
+            font-size: 1.1rem;
+            padding: 1rem;
         }
 
         .search-by-diagnosis table,
         .examination-history table {
-            font-size: 1.1rem; /* Tablo font boyutunu artýr */
+            font-size: 1.1rem;
+            max-height: 400px;
+            overflow-y: auto;
+            display: block;
         }
 
+            .search-by-diagnosis table th,
+            .examination-history table th {
+                position: sticky;
+                top: 0;
+                background: #007bff;
+                color: #fff;
+                z-index: 1;
+            }
+
     .examination-history h2 {
-        font-size: 1.75rem; /* Baþlýk font boyutunu artýr */
+        font-size: 1.75rem;
     }
 
     .examination-history button {
-        padding: 1rem 2rem; /* Paddingi artýr */
+        padding: 1rem 2rem;
     }
 }

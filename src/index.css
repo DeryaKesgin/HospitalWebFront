@@ -167,6 +167,10 @@ form {
         font-weight: bold;
         cursor: pointer;
         transition: background 0.3s ease-in-out;
+        text-align: center;
+        display: flex; /* Flexbox kullanýmý */
+        justify-content: center; /* Yatay ortalama */
+        align-items: center; /* Dikey ortalama */
     }
 
         form button:hover {

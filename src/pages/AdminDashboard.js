@@ -57,8 +57,8 @@ function AdminDashboard() {
         try {
             const response = await axios.get(apiEndpoint, {
                 params: {
-                    firstname: firstName || undefined,
-                    lastname: lastName || undefined
+                    firstname: firstName || '',
+                    lastname: lastName || ''
                 }
             });
 

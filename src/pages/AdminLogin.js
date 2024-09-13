@@ -26,23 +26,28 @@ function AdminLogin() {
                     }
                 );
 
-                if (response.data.success) {
+                console.log('API Yanıtı:', response.data); // API yanıtını kontrol edin
+
+                if (response.data.token) {
                     const adminInfo = response.data.adminInfo;
-                    localStorage.setItem('adminId', response.data.adminInfo.AdminId);
-                    localStorage.setItem('adminInfo', JSON.stringify(adminInfo)); // Admin bilgilerini localStorage'a kaydediyoruz.
+                    console.log('Admin Bilgileri:', adminInfo); // adminInfo'nun içeriğini kontrol edin
+                    localStorage.setItem('adminId', adminInfo ? adminInfo.AdminId : ''); // adminInfo'nun varlığını kontrol edin
+                    localStorage.setItem('token', response.data.token);
+                    localStorage.setItem('adminInfo', JSON.stringify(adminInfo));
 
                     navigate('/dashboard', { state: { adminInfo } });
                 } else {
                     setErrorMessage('Kullanıcı adı veya şifre yanlış.');
                 }
             } catch (error) {
-                console.error('Giriş yaparken bir hata oluştu:', error);
+                console.error('Giriş yaparken bir hata oluştu:', error.response ? error.response.data : error.message);
                 setErrorMessage('Bir hata oluştu. Lütfen tekrar deneyin.');
             }
         } else {
             setErrorMessage('Lütfen kullanıcı adı ve şifre girin.');
         }
     };
+
 
     return (
         <div>

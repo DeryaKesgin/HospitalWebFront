@@ -1,6 +1,6 @@
 ﻿import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
+import axios from './axios';  // axios.js dosyasını import edin
 
 function PatientLogin() {
     const [email, setEmail] = useState('');
@@ -32,8 +32,11 @@ function PatientLogin() {
                         }
                     }
                 );
+
                 console.log('API Yanıtı:', response.data);
-                if (response.data.success) {
+
+                if (response.data.token) {
+                    localStorage.setItem('token', response.data.token);
                     localStorage.setItem('patientId', response.data.patientInfo.patientId);
 
                     navigate('/patients', {
@@ -47,7 +50,7 @@ function PatientLogin() {
                     setErrorMessage('Kullanıcı adı veya şifre yanlış.');
                 }
             } catch (error) {
-                console.error('Giriş yaparken bir hata oluştu:', error);
+                console.error('Giriş yaparken bir hata oluştu:', error.response ? error.response.data : error.message);
                 setErrorMessage('Bir hata oluştu. Lütfen tekrar deneyin.');
             }
         } else {
